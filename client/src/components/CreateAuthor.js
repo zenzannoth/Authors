@@ -1,4 +1,4 @@
-import Reach, { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import AuthorForm from './AuthorForm';
 import { Link, navigate } from '@reach/router';
@@ -31,11 +31,10 @@ const CreateAuthor = (props) => {
                 <h1>Favorite authors</h1>
                 <Link to='/'>Home</Link>
                 <p>Add a new author:</p>
+            </div>
                 <div>
                     <AuthorForm author={ author } setAuthor={ setAuthor } errors={ errors } handleSubmit={ handleSubmit } btnLabel={ 'Submit' } />
                 </div>
-                
-            </div>
         </div>
     )
 

@@ -21,3 +21,9 @@ module.exports.getAllAuthors = (req, res) => {
         .then(author => res.json(author))
         .catch(err => res.json(err));
 }
+
+module.exports.editAuthor = (req, res) => {
+    Author.updateOne({_id: req.params.id}, req.body, {new:true})
+        .then(editAuthor => res.json(editAuthor))
+        .catch(err => res.json(err))
+}

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import '../App.css';
 
 const AuthorForm = (props) => {
     const { author, setAuthor, errors, handleSubmit, btnLabel } = props;
@@ -12,7 +12,7 @@ const AuthorForm = (props) => {
     }
 return (
     <div>
-        <div id="formcontainer">
+        <div id="formcontainer" onSubmit={ (e) => handleSubmit(e) }>
             <form>
                 <div className="formtxt">
                     <label>Name:</label>
