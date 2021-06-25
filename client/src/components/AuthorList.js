@@ -1,9 +1,18 @@
 import '../App.css';
 import React from 'react';
-import { Link } from '@reach/router';
-import DeleteAuthor from '../components/DeleteAuthor';
+import { Link, navigate } from '@reach/router';
+import axios from "axios";
+// import DeleteAuthor from '../components/DeleteAuthor';
 
 const AuthorList = (props) => {
+
+    const deleteAuthor = (authorId) => {
+        axios.delete("http://localhost:8000/api/authors/delete/" + authorId)
+            .then(res => {
+                navigate("/");
+            })
+            .catch(err => console.log(err))
+    }
 
     return (
         <div>
@@ -24,7 +33,7 @@ const AuthorList = (props) => {
                         {props.authors.map((author, index) => {
                         return <tr key={ index }>
                             <td>{ author.name }</td>
-                            <td><Link to={`/authors/edit/${author._id}`} classname="tablebtn">Edit</Link><DeleteAuthor /></td> {/* add delete button */}
+                            <td><Link to={`/authors/edit/${author._id}`} className="tablebtn">Edit</Link><button className="delbtn" onClick={() => deleteAuthor(author._id)}>Delete</button></td> {/* add delete button */}
                         </tr>
                         })}
                     </tbody>

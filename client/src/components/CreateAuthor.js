@@ -32,7 +32,7 @@ const CreateAuthor = (props) => {
                 <Link to='/'>Home</Link>
                 <p>Add a new author:</p>
             </div>
-                <div>
+                <div className="listsection">
                     <AuthorForm author={ author } setAuthor={ setAuthor } errors={ errors } handleSubmit={ handleSubmit } btnLabel={ 'Submit' } />
                 </div>
         </div>

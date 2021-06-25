@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, navigate } from '@reach/router';
 import AuthorForm from './AuthorForm';
+// import DeleteAuthor from './DeleteAuthor'
 
 const EditAuthor = (props) => {
     const { id } = props;
@@ -16,7 +17,7 @@ const EditAuthor = (props) => {
             .catch(err => {
                 console.log(err);
             })
-    });
+    }, []);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -35,6 +36,10 @@ const EditAuthor = (props) => {
             })
     }
 
+    // const postDelete = () => {
+    //         navigate("/");
+    //     }
+
     return (
         <div>
             <div classname="header">
@@ -42,7 +47,7 @@ const EditAuthor = (props) => {
                 <Link to='/'>Home</Link>
                 <p>Edit this author:</p>
             </div>
-            <div>
+            <div className="listsection">
                 <AuthorForm author={ author } setAuthor={ setAuthor } errors={ errors } handleSubmit={ handleSubmit } btnLabel={ 'Submit' } />
             </div>
         </div>

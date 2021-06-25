@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import { navigate } from '@reach/router';
 
 const AuthorForm = (props) => {
     const { author, setAuthor, errors, handleSubmit, btnLabel } = props;
@@ -17,15 +18,15 @@ return (
                 <div className="formtxt">
                     <label>Name:</label>
                     {
-                        errors.authorName ?
-                        <span className="error">{ errors.authorName.message }</span>
+                        errors.name ?
+                        <span className="error">{ errors.name.message }</span>
                         :null
                     }
                     <input type="text" name="name" value={ author.name }
-                    onChange={ (e) => updateAuthors(e)} />
+                    onChange={ (e) => updateAuthors(e) } />
                 </div>
                 <div>
-                    <button className="addbtn" type="submit">Cancel</button>
+                    <button className="addbtn" type="submit" onClick={() => navigate("/")}>Cancel</button>
                     <button className="addbtn" type="submit">{ btnLabel }</button>
                 </div>
             </form>
